@@ -1,12 +1,6 @@
 html(lang='en')
   head
-    link(rel='stylesheet', href='bmi.css')
-    //
-      Notes
-      BMI Fomula in this site: https://www.cdc.gov/healthyweight/assessing/bmi/childrens_bmi/childrens_bmi_formula.html
-      Age is irrelevant
-    link(rel='stylesheet', href='bmi.css')
-    link(rel='stylesheet', href='bmi.css')
+    link(rel='stylesheet', href='/static/stylesheets/bmi.css')
     link(href='https://fonts.googleapis.com/css?family=Noto+Sans', rel='stylesheet')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -18,14 +12,13 @@ html(lang='en')
         form(action='/', method='post')
           h1 BMI calculator
           p Insert Your Age
-          input#age(type='text')
+          input#age(type='text', name='age' value=age) 
           p Insert Weight in Kg
-          input#weight(type='text')
+          input#weight(type='text', name='weight' value=weight)
           br
           p Insert Height in cm
-          input#height(type='text')
+          input#height(type='text', name='height' value=height)
           br
-          button#calc check
-          p#result
-    .result
-      h3 Your BMI result is:
+          button#calc(type='submit') check
+        if !!bmiResult
+          p#result Your BMI result is: #{bmiResult}
